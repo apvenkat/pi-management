@@ -26,6 +26,15 @@ function processData(res, sql) {
   });
 }
 
+function sendData(res, data, err) {
+  res.setHeader("Access-Control-Allow-Origin", "*");
+
+  if (data[0]) res.send(data);
+  else {
+    res.status(404).send("Device not found");
+  }
+}
+
 //Add Device
 router.post("/api", function(req, res) {
   res.setHeader("Access-Control-Allow-Origin", "*");
