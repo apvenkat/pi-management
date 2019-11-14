@@ -46,7 +46,7 @@ router.post("/api", function(req, res) {
 //   res.json(gpiodata);
 // });
 
-//Add Device
+//Get Device
 router.get("/api", function(req, res) {
   processData(res, "SELECT * FROM gpiolist");
 });
