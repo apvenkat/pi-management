@@ -11,6 +11,7 @@ app.set("views", "views");
 var sqlite3 = require("sqlite3");
 var db = new sqlite3.Database("db/sqlitedb.db");
 var bodyParser = require("body-parser");
+app.use(bodyParser.urlencoded({ extended: true }));
 
 var fs = require("fs");
 var sqlSchema = fs.readFileSync("db/gpio-config.sql").toString();
