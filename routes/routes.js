@@ -34,4 +34,12 @@ router.get("/settings", function(req, res, next) {
   }
 });
 
+router.get("/dashboard", function(req, res, next) {
+  if (req.accepts("html")) {
+    res.render("dashboard");
+  } else {
+    res.json(sensorlist);
+  }
+});
+
 module.exports = router;

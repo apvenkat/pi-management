@@ -6,3 +6,11 @@ CREATE TABLE IF NOT EXISTS `gpiolist` (
 	`type`	TEXT,
 	`value`	TEXT NOT NULL
 );
+
+CREATE TABLE IF NOT EXISTS `login` (
+	`id`	INTEGER PRIMARY KEY AUTOINCREMENT,
+	`name`	TEXT NOT NULL,
+	`email`	TEXT UNIQUE,
+	`password` TEXT NOT NULL,
+	
+);
