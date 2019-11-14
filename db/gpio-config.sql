@@ -1,8 +1,8 @@
 CREATE TABLE IF NOT EXISTS `gpiolist` (
 	`id`	INTEGER PRIMARY KEY AUTOINCREMENT,
-	`name`	TEXT NOT NULL ,
-	`description`	TEXT NOT NULL,
+	`name`	TEXT NOT NULL,
+	`description`	TEXT,
 	`pin`	INTEGER UNIQUE,
-	`type`	TEXT NOT NULL,
-	`value`	TEXT NOT NULL 
+	`type`	TEXT,
+	`value`	TEXT NOT NULL
 );

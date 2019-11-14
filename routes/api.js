@@ -3,10 +3,6 @@ var router = express.Router();
 var sqlite3 = require("sqlite3");
 var db = new sqlite3.Database("db/sqlitedb.db");
 
-const Gpio = require("onoff").Gpio;
-// var fs = require('fs');
-// var gpiodata = require('../config/gpio-config.json');
-
 //Add Device
 router.post("/api", function(req, res) {
   res.setHeader("Access-Control-Allow-Origin", "*");
@@ -33,24 +29,10 @@ router.post("/api", function(req, res) {
   });
 });
 
-// router.use(bodyParser.json());
-// router.use(bodyParser.urlencoded({ extended: false }));
-
-// router.post('/api', function(req, res) {
-//   gpiodata.unshift(req.body);
-//   fs.writeFile('config/gpio-config.json', JSON.stringify(gpiodata), 'utf8', function(err) {
-//     if (err) {
-//       console.log(err);
-//     }
-//   });
-//   res.json(gpiodata);
-// });
-
-//Get Device
+//Get devices
 router.get("/api", function(req, res) {
   processData(res, "SELECT * FROM gpiolist");
 });
-
 router.get("/api/id/:id", function(req, res) {
   processData(res, "SELECT * FROM gpiolist where id == " + req.params.id);
 });
@@ -107,8 +89,8 @@ router.put("/api/id/:id", function(req, res) {
   var id = req.params.id;
 
   var sql = `update gpiolist
-                set pin = ?, description = ?, name = ?, value = ?
-                where id = ?;`;
+              set pin = ?, description = ?, name = ?, value = ?
+              where id = ?;`;
 
   var values = [pin, description, name, value, id];
 
@@ -120,22 +102,6 @@ router.put("/api/id/:id", function(req, res) {
       } else res.send();
     });
   });
-});
-
-//GPIO high
-
-router.post("/api/on/:id", function(req, res) {
-  const led = new Gpio(gpiodata[req.params.id].gpio, "out");
-  led.writeSync(1);
-  res.sendStatus(200);
-});
-
-//GPIO low
-
-router.post("/api/off/:id", function(req, res) {
-  const led = new Gpio(gpiodata[req.params.id].gpio, "out");
-  led.writeSync(0);
-  res.sendStatus(200);
 });
 
 module.exports = router;

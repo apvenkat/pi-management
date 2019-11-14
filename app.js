@@ -11,8 +11,6 @@ app.set("views", "views");
 var sqlite3 = require("sqlite3");
 var db = new sqlite3.Database("db/sqlitedb.db");
 var bodyParser = require("body-parser");
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
 
 var fs = require("fs");
 var sqlSchema = fs.readFileSync("db/gpio-config.sql").toString();
@@ -21,6 +19,8 @@ db.serialize(function() {
   db.run(sqlSchema);
 });
 
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(require("./routes/api"));
 app.use(require("./routes/routes"));
 
