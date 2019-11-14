@@ -1,14 +1,14 @@
 var express = require("express");
 var router = express.Router();
 var sqlite3 = require("sqlite3");
+const request = require("request");
 var db = new sqlite3.Database("db/sqlitedb.db");
 const Gpio = require("onoff").Gpio;
 
 //Get devices
-var gpiodata = router.get("/api", function(req, res) {
+router.get("/api", function(req, res) {
   processData(res, "SELECT * FROM gpiolist");
 });
-console.log(gpiodata);
 
 router.get("/api/id/:id", function(req, res) {
   processData(res, "SELECT * FROM gpiolist where id == " + req.params.id);
@@ -109,8 +109,17 @@ router.put("/api/id/:id", function(req, res) {
 
 // GPIO high
 router.post("/api/on/:id", function(req, res) {
-  const led = new Gpio(gpiodata[req.params.id].pin, "out");
-  led.writeSync(1);
+  request(
+    "http://localhost:3000/api/",
+    { json: true },
+    (err, res, gpiodata) => {
+      if (err) {
+        return console.log(err);
+      }
+      const led = new Gpio(gpiodata[req.params.id].pin, "out");
+      led.writeSync(1);
+    }
+  );
   res.sendStatus(200);
 });
 
