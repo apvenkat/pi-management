@@ -8,8 +8,23 @@ const Gpio = require("onoff").Gpio;
 // var gpiodata = require('../config/gpio-config.json');
 
 router.get("/api", function(req, res) {
-  res.json(gpiodata);
+  processData(res, "SELECT * FROM gpiolist");
 });
+
+router.get("/api/id/:id", function(req, res) {
+  processData(res, "SELECT * FROM gpiolist where id == " + req.params.id);
+});
+
+function processData(res, sql) {
+  db.serialize(function() {
+    db.all(sql, function(err, rows) {
+      if (err) {
+        console.error(err);
+        res.status(500).send(err);
+      } else sendData(res, rows, err);
+    });
+  });
+}
 
 //Add Device
 router.post("/api", function(req, res) {

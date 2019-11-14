@@ -8,6 +8,17 @@ app.set("port", process.env.PORT || 3000);
 // app.set('appData', dataFile);
 app.set("view engine", "ejs");
 app.set("views", "views");
+var sqlite3 = require("sqlite3");
+var db = new sqlite3.Database("db/sqlitedb.db");
+var bodyParser = require("body-parser");
+
+var fs = require("fs");
+var sqlSchema = fs.readFileSync("db/gpio-config.sql").toString();
+
+db.serialize(function() {
+  db.run(sqlSchema);
+});
+
 app.use(require("./routes/api"));
 app.use(require("./routes/routes"));
 
