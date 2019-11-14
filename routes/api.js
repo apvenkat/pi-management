@@ -126,8 +126,17 @@ router.post("/api/on/:id", function(req, res) {
 //GPIO Low
 
 router.post("/api/off/:id", function(req, res) {
-  const led = new Gpio(gpiodata[req.params.id].pin, "out");
-  led.writeSync(0);
+  request(
+    "http://localhost:3000/api/",
+    { json: true },
+    (err, res, gpiodata) => {
+      if (err) {
+        return console.log(err);
+      }
+      const led = new Gpio(gpiodata[req.params.id].pin, "out");
+      led.writeSync(0);
+    }
+  );
   res.sendStatus(200);
 });
 
