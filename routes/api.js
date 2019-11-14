@@ -107,7 +107,7 @@ router.put("/api/id/:id", function(req, res) {
 
 // GPIO high
 router.post("/api/on/:id", function(req, res) {
-  const led = new Gpio(gpiodata[req.params.id].gpio, "out");
+  const led = new Gpio(gpiodata[req.params.id].pin, "out");
   led.writeSync(1);
   res.sendStatus(200);
 });
@@ -115,7 +115,7 @@ router.post("/api/on/:id", function(req, res) {
 //GPIO Low
 
 router.post("/api/off/:id", function(req, res) {
-  const led = new Gpio(gpiodata[req.params.id].gpio, "out");
+  const led = new Gpio(gpiodata[req.params.id].pin, "out");
   led.writeSync(0);
   res.sendStatus(200);
 });
