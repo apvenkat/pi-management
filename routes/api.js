@@ -8,6 +8,8 @@ const Gpio = require("onoff").Gpio;
 var gpiodata = router.get("/api", function(req, res) {
   processData(res, "SELECT * FROM gpiolist");
 });
+console.log(gpiodata);
+
 router.get("/api/id/:id", function(req, res) {
   processData(res, "SELECT * FROM gpiolist where id == " + req.params.id);
 });
