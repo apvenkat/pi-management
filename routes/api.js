@@ -2,6 +2,15 @@ var express = require("express");
 var router = express.Router();
 var sqlite3 = require("sqlite3");
 var db = new sqlite3.Database("db/sqlitedb.db");
+const Gpio = require("onoff").Gpio;
+
+//Get devices
+var gpiodata = router.get("/api", function(req, res) {
+  processData(res, "SELECT * FROM gpiolist");
+});
+router.get("/api/id/:id", function(req, res) {
+  processData(res, "SELECT * FROM gpiolist where id == " + req.params.id);
+});
 
 //Add Device
 router.post("/api", function(req, res) {
@@ -27,14 +36,6 @@ router.post("/api", function(req, res) {
       } else res.send();
     });
   });
-});
-
-//Get devices
-router.get("/api", function(req, res) {
-  processData(res, "SELECT * FROM gpiolist");
-});
-router.get("/api/id/:id", function(req, res) {
-  processData(res, "SELECT * FROM gpiolist where id == " + req.params.id);
 });
 
 function processData(res, sql) {
@@ -102,6 +103,21 @@ router.put("/api/id/:id", function(req, res) {
       } else res.send();
     });
   });
+});
+
+// GPIO high
+router.post("/api/on/:id", function(req, res) {
+  const led = new Gpio(gpiodata[req.params.id].gpio, "out");
+  led.writeSync(1);
+  res.sendStatus(200);
+});
+
+//GPIO Low
+
+router.post("/api/off/:id", function(req, res) {
+  const led = new Gpio(gpiodata[req.params.id].gpio, "out");
+  led.writeSync(0);
+  res.sendStatus(200);
 });
 
 module.exports = router;
