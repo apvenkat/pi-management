@@ -7,6 +7,46 @@ const Gpio = require("onoff").Gpio;
 // var fs = require('fs');
 // var gpiodata = require('../config/gpio-config.json');
 
+//Add Device
+router.post("/api", function(req, res) {
+  res.setHeader("Access-Control-Allow-Origin", "*");
+
+  var pin = req.body.pin;
+  var name = req.body.name;
+  var type = req.body.type;
+  var description = req.body.description;
+  var value = req.body.value;
+
+  var sql = `insert into gpiolist (name, description,pin, type, value)
+      VALUES
+      (?,?,?, ?, ?);`;
+
+  var values = [name, description, pin, type, value];
+
+  db.serialize(function() {
+    db.run(sql, values, function(err) {
+      if (err) {
+        console.error(err);
+        res.status(500).send(err);
+      } else res.send();
+    });
+  });
+});
+
+// router.use(bodyParser.json());
+// router.use(bodyParser.urlencoded({ extended: false }));
+
+// router.post('/api', function(req, res) {
+//   gpiodata.unshift(req.body);
+//   fs.writeFile('config/gpio-config.json', JSON.stringify(gpiodata), 'utf8', function(err) {
+//     if (err) {
+//       console.log(err);
+//     }
+//   });
+//   res.json(gpiodata);
+// });
+
+//Add Device
 router.get("/api", function(req, res) {
   processData(res, "SELECT * FROM gpiolist");
 });
@@ -35,44 +75,6 @@ function sendData(res, data, err) {
   }
 }
 
-//Add Device
-router.post("/api", function(req, res) {
-  res.setHeader("Access-Control-Allow-Origin", "*");
-
-  var pin = req.body.pin;
-  var name = req.body.name;
-  var type = req.body.type;
-  var description = req.body.description;
-  var value = req.body.value;
-
-  var sql = `insert into gpiolist (name, description,pin, type, value)
-      VALUES
-      (?,?,?, ?, ?);`;
-
-  var values = [name, description, pin, type, value];
-
-  db.serialize(function() {
-    db.run(sql, values, function(err) {
-      if (err) {
-        console.error(err);
-        res.status(500).send(err);
-      } else res.send();
-    });
-  });
-});
-
-router.use(bodyParser.json());
-router.use(bodyParser.urlencoded({ extended: false }));
-
-// router.post('/api', function(req, res) {
-//   gpiodata.unshift(req.body);
-//   fs.writeFile('config/gpio-config.json', JSON.stringify(gpiodata), 'utf8', function(err) {
-//     if (err) {
-//       console.log(err);
-//     }
-//   });
-//   res.json(gpiodata);
-// });
 //Delete Device
 router.delete("/api/delete/:id", function(req, res) {
   res.setHeader("Access-Control-Allow-Origin", "*");
