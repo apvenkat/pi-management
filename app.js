@@ -11,6 +11,7 @@ app.set("views", "views");
 var sqlite3 = require("sqlite3");
 var db = new sqlite3.Database("db/sqlitedb.db");
 var bodyParser = require("body-parser");
+app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 var fs = require("fs");
