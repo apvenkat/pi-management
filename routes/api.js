@@ -2,7 +2,7 @@ var express = require("express");
 var router = express.Router();
 var sqlite3 = require("sqlite3");
 var db = new sqlite3.Database("db/sqlitedb.db");
-var bodyParser = require("body-parser");
+
 const Gpio = require("onoff").Gpio;
 // var fs = require('fs');
 // var gpiodata = require('../config/gpio-config.json');
