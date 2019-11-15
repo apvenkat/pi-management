@@ -1,16 +1,21 @@
 $(function() {
-  $.getJSON("api", updateFeedback);
-
-  $(".feedback-form").submit(function(e) {
+  $(".signup").submit(function(e) {
     e.preventDefault();
     $.post(
-      "api",
+      "/api/AddUser",
       {
-        name: $("#feedback-form-name").val(),
-        gpio: $("#feedback-form-gpio").val(),
-        value: $("#feedback-form-value").val()
+        name: $("#name").val(),
+        email: $("#email").val(),
+        password: $("#password").val()
       },
-      updateFeedback
+      alert
     );
-  });
+  }); //feedback messages
+
+  function alert() {
+    var output = "";
+    output +=
+      '<div class="alert alert-success" role="alert"> Data Inserted Successfully !!</div>';
+    $(".alert-messages").html(output);
+  }
 });

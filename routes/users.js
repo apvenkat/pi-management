@@ -56,6 +56,8 @@ function sendData(res, data, err) {
   }
 }
 
+//Login User
+
 router.post("/LoginUser", function(req, res) {
   res.setHeader("Access-Control-Allow-Origin", "*");
   var email = req.body.email;
@@ -90,6 +92,10 @@ router.post("/LoginUser", function(req, res) {
       }
     }
   });
+});
+
+router.get("/logout", function(req, res) {
+  res.redirect("/login");
 });
 
 module.exports = router;
