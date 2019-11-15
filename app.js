@@ -20,6 +20,21 @@ db.serialize(function() {
   db.run(sqlSchema);
 });
 
+db.run(
+  `CREATE TABLE IF NOT EXISTS 'login' (
+	'id'	INTEGER PRIMARY KEY AUTOINCREMENT,
+	'name'	TEXT NOT NULL,
+	'email'	TEXT UNIQUE,
+	'password' TEXT NOT NULL );`,
+  function(err) {
+    if (err) {
+      return console.log(err.message);
+    }
+    console.log("Login Table Created");
+  }
+);
+
+db.close();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(require("./routes/api"));
