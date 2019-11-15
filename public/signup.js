@@ -1,12 +1,14 @@
 $(function() {
   $(".signup").submit(function(e) {
     e.preventDefault();
-    $.ajax({
-      url: "/api/AddUser",
-      type: "POST",
-      success: function() {
-        alert("success");
-      }
-    }); //ajax
+    $.post(
+      "/api/AddUser",
+      {
+        name: $("#name").val(),
+        gpio: $("#email").val(),
+        value: $("#password").val()
+      },
+      alert("success")
+    );
   }); //feedback messages
 });
