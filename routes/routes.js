@@ -38,7 +38,9 @@ router.get("/dashboard", function(req, res, next) {
   if (req.accepts("html")) {
     res.render("dashboard");
   } else {
-    res.json(sensorlist);
+    res.json({
+      message: "This is Dashboard page"
+    });
   }
 });
 
