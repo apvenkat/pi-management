@@ -5,8 +5,8 @@ $(function() {
       "/api/AddUser",
       {
         name: $("#name").val(),
-        gpio: $("#email").val(),
-        value: $("#password").val()
+        email: $("#email").val(),
+        password: $("#password").val()
       },
       alert("success")
     );
