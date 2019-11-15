@@ -113,7 +113,7 @@
   </head>
   <body>
     <div class="signup-form">
-      <form action="/api/AddUser" method="post">
+      <form id="form" action="/api/AddUser" method="post">
         <h2>Register</h2>
         <p class="hint-text">
           Create your account. It's free and only takes a minute.
@@ -159,6 +159,19 @@
           </button>
         </div>
       </form>
+
+      <div id="messages" class="hide" role="alert">
+        <button
+          type="button"
+          class="close"
+          data-dismiss="alert"
+          aria-label="Close"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <div id="messages_content"></div>
+      </div>
+
       <div id="messages" class="hide" role="alert">
         <button
           type="button"
@@ -174,5 +187,18 @@
         Already have an account? <a href="/login">Sign in</a>
       </div>
     </div>
+
+    <script>
+      $("#form").submit(function(e) {
+        $("#messages")
+          .removeClass("hide")
+          .addClass("alert alert-success alert-dismissible")
+          .slideDown()
+          .show();
+        $("#messages_content").html("<h4>MESSAGE HERE</h4>");
+        $("#modal").modal("show");
+        e.preventDefault();
+      });
+    </script>
   </body>
 </html>
