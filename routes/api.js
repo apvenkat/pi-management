@@ -4,7 +4,7 @@ var sqlite3 = require("sqlite3");
 const request = require("request");
 var db = new sqlite3.Database("db/sqlitedb.db");
 const Gpio = require("onoff").Gpio;
-var APIEndpoint = "http://localhost:4000";
+var APIEndpoint = "http://localhost:4000/api/";
 //Get devices
 router.get("/api", function(req, res) {
   processData(res, "SELECT * FROM gpiolist");
