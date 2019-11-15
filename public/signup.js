@@ -3,7 +3,6 @@ $(function() {
     e.preventDefault();
     $.ajax({
       url: "/api/AddUser",
-      dataType: "json",
       type: "POST",
       success: function() {
         alert("success");
