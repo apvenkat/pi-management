@@ -1,5 +1,5 @@
 $(function() {
-  $(".signup-form").submit(function(e) {
+  $(".signup").submit(function(e) {
     e.preventDefault();
     $.ajax({
       url: "/api/AddUser",
