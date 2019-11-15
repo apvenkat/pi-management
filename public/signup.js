@@ -8,7 +8,14 @@ $(function() {
         email: $("#email").val(),
         password: $("#password").val()
       },
-      alert("success")
+      alert
     );
   }); //feedback messages
+
+  function alert() {
+    var output = "";
+    output +=
+      '<div class="alert alert-success" role="alert"> Data Inserted Successfully !!</div>';
+    $(".alert-messages").html(output);
+  }
 });
