@@ -4,7 +4,7 @@ var sqlite3 = require("sqlite3");
 const request = require("request");
 var db = new sqlite3.Database("db/sqlitedb.db");
 const Gpio = require("onoff").Gpio;
-
+var APIEndpoint = "http://localhost:4000";
 //Get devices
 router.get("/api", function(req, res) {
   processData(res, "SELECT * FROM gpiolist");
@@ -109,34 +109,26 @@ router.put("/api/id/:id", function(req, res) {
 
 // GPIO high
 router.post("/api/on/:id", function(req, res) {
-  request(
-    "http://localhost:3000/api/",
-    { json: true },
-    (err, res, gpiodata) => {
-      if (err) {
-        return console.log(err);
-      }
-      const led = new Gpio(gpiodata[req.params.id].pin, "out");
-      led.writeSync(1);
+  request(APIEndpoint, { json: true }, (err, res, gpiodata) => {
+    if (err) {
+      return console.log(err);
     }
-  );
+    const led = new Gpio(gpiodata[req.params.id].pin, "out");
+    led.writeSync(1);
+  });
   res.sendStatus(200);
 });
 
 //GPIO Low
 
 router.post("/api/off/:id", function(req, res) {
-  request(
-    "http://localhost:3000/api/",
-    { json: true },
-    (err, res, gpiodata) => {
-      if (err) {
-        return console.log(err);
-      }
-      const led = new Gpio(gpiodata[req.params.id].pin, "out");
-      led.writeSync(0);
+  request(APIEndpoint, { json: true }, (err, res, gpiodata) => {
+    if (err) {
+      return console.log(err);
     }
-  );
+    const led = new Gpio(gpiodata[req.params.id].pin, "out");
+    led.writeSync(0);
+  });
   res.sendStatus(200);
 });
 
