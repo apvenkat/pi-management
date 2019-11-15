@@ -9,7 +9,7 @@ app.set("port", process.env.PORT || 4000);
 // app.set('appData', dataFile);
 app.set("view engine", "ejs");
 app.set("views", "views");
-var sqlite3 = require("sqlite3");
+var sqlite3 = require("sqlite3").verbose();
 var db = new sqlite3.Database("db/sqlitedb.db");
 var bodyParser = require("body-parser");
 
