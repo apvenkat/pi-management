@@ -113,7 +113,7 @@
   </head>
   <body>
     <div class="signup-form">
-      <form class="signup" action="/api/AddUser" method="post">
+      <form action="/api/AddUser" method="post">
         <h2>Register</h2>
         <p class="hint-text">
           Create your account. It's free and only takes a minute.
@@ -174,18 +174,5 @@
         Already have an account? <a href="/login">Sign in</a>
       </div>
     </div>
-
-    <script>
-      $(".signup").submit(function(e) {
-        $("#messages")
-          .removeClass("hide")
-          .addClass("alert alert-success alert-dismissible")
-          .slideDown()
-          .show();
-        $("#messages_content").html("<h4>MESSAGE HERE</h4>");
-        $("#modal").modal("show");
-        e.preventDefault();
-      });
-    </script>
   </body>
 </html>
