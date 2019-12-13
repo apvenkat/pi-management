@@ -1,6 +1,7 @@
 var express = require("express");
 var router = express.Router();
 var request = require("request");
+const auth = require("./middleware/auth");
 // var options = { method: 'GET',
 //             url: 'http://devices.webofthings.io/pi/sensors/',
 //             headers:
@@ -34,7 +35,7 @@ router.get("/settings", function(req, res, next) {
   }
 });
 
-router.get("/dashboard", function(req, res, next) {
+router.get("/dashboard", auth, function(req, res, next) {
   if (req.accepts("html")) {
     res.render("dashboard");
   } else {

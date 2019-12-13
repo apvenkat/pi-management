@@ -2,8 +2,11 @@ var express = require("express");
 var router = express.Router();
 var sqlite3 = require("sqlite3");
 var bcrypt = require("bcrypt");
-var db = new sqlite3.Database("db/sqlitedb.db");
 
+router.use(require("cookie-parser")());
+var db = new sqlite3.Database("db/sqlitedb.db");
+const jwt = require("jsonwebtoken");
+var secret = "This is the secret for signing tokens";
 //Add Users
 router.post("/api/AddUser", function(req, res) {
   res.setHeader("Access-Control-Allow-Origin", "*");
@@ -81,6 +84,8 @@ router.post("/LoginUser", function(req, res) {
               message: "Email and password does not match"
             });
           } else {
+            var token = jwt.sign({ email: req.body.email }, secret);
+            res.cookie("token", token);
             res.redirect("/dashboard");
           }
         });
