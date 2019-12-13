@@ -38,8 +38,6 @@ router.get("/settings", function(req, res, next) {
 
 router.get("/dashboard", auth, function(req, res, next) {
   if (req.accepts("html")) {
-    const token = req.cookies.token;
-    res.header("x-auth-token", token);
     res.render("dashboard");
   } else {
     res.json({

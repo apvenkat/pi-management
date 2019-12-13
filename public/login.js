@@ -1,10 +1,9 @@
 $(function() {
-  $(".signup").submit(function(e) {
+  $(".login").submit(function(e) {
     e.preventDefault();
     $.post(
-      "/api/AddUser",
+      "/LoginUser",
       {
-        name: $("#name").val(),
         email: $("#email").val(),
         password: $("#password").val()
       },
@@ -13,9 +12,14 @@ $(function() {
   }); //feedback messages
 
   function alert() {
-    var output = "";
-    output +=
-      '<div class="alert alert-success" role="alert"> Data Inserted Successfully !!</div>';
-    $(".alert-messages").html(output);
+    $.ajax({
+      url: "/dashboard",
+      headers: {
+        "x-auth-token": $.cookie("token"),
+
+        "Content-Type": "application/json"
+      },
+      method: "GET"
+    });
   }
 });
