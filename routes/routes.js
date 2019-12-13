@@ -1,5 +1,6 @@
 var express = require("express");
 var router = express.Router();
+router.use(require("cookie-parser")());
 var request = require("request");
 const auth = require("../middleware/auth");
 // var options = { method: 'GET',

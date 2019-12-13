@@ -61,7 +61,7 @@ function sendData(res, data, err) {
 
 //Login User
 
-router.post("/LoginUser", function(req, res) {
+router.post("/LoginUser", auth, function(req, res) {
   res.setHeader("Access-Control-Allow-Origin", "*");
   var email = req.body.email;
   var password = req.body.password;
