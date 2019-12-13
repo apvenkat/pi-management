@@ -1,7 +1,7 @@
 var express = require("express");
 var router = express.Router();
 var request = require("request");
-const auth = require("./middleware/auth");
+const auth = require("../middleware/auth");
 // var options = { method: 'GET',
 //             url: 'http://devices.webofthings.io/pi/sensors/',
 //             headers:
