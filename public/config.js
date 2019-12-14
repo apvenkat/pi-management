@@ -16,6 +16,39 @@ $(function() {
     );
   }); //feedback messages
 
+  $(".feedback-messages").on("click", function(e) {
+    if (e.target.className == "glyphicon glyphicon-remove") {
+      $.ajax({
+        url: "api/delete/" + e.target.id,
+        dataType: "json",
+        type: "DELETE",
+        success: updateFeedback
+      }); //ajax
+    } // the target is a delete button
+  }); //feedback messages
+
+  $(".feedback-messages").on("click", function(e) {
+    if (e.target.className == "btn btn-success btn-just-icon") {
+      $.ajax({
+        url: "api/on/" + e.target.id,
+        dataType: "json",
+        type: "POST",
+        success: updateFeedback
+      }); //ajax
+    } // the target is a delete button
+  }); //feedback messages
+
+  $(".feedback-messages").on("click", function(e) {
+    if (e.target.className == "btn btn-danger btn-just-icon") {
+      $.ajax({
+        url: "api/off/" + e.target.id,
+        dataType: "json",
+        type: "POST",
+        success: updateFeedback
+      }); //ajax
+    } // the target is a delete button
+  }); //feedback messages
+
   function updateFeedback(data) {
     console.log(data);
     var output = "";
