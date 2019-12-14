@@ -16,15 +16,15 @@ $(function() {
     );
   }); //feedback messages
 
-  $(".feedback-messages").on("click", function(e) {
-    if (e.target.className == "glyphicon glyphicon-remove") {
-      $.ajax({
-        url: "api/delete/" + e.target.id,
-        dataType: "json",
-        type: "DELETE",
-        success: updateFeedback
-      }); //ajax
-    } // the target is a delete button
+  $(".remove-gpio-form").submit(function(e) {
+    e.preventDefault();
+    $.post(
+      "/api/delete/",
+      {
+        name: $("#name").val()
+      },
+      updateFeedback
+    );
   }); //feedback messages
 
   $(".feedback-messages").on("click", function(e) {
