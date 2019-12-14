@@ -106,8 +106,63 @@
         </nav>
 
         <div class="container-fluid">
-          <h1 class="mt-4">Dashboard</h1>
-          <div class="feedback-messages"></div>
+          <h1 class="mt-4">Manage GPIOs</h1>
+          <form class="feedback-form">
+            <div class="form-group">
+              <label for="feedback-form-name">Name</label>
+              <input
+                type="text"
+                class="form-control"
+                id="feedback-form-name"
+                placeholder="Enter the device name"
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="feedback-form-pin">GPIO PIN</label>
+              <input
+                type="text"
+                class="form-control"
+                id="feedback-form-gpio"
+                placeholder="Enter Pin number"
+              />
+            </div>
+            <div class="form-group">
+              <label for="feedback-form-type">Type</label>
+              <select class="form-control" id="feedback-form-type">
+                <option value="input">Input</option>
+                <option value="output">Output</option>
+              </select>
+              <input
+                type="text"
+                class="form-control"
+                id="feedback-form-type"
+                placeholder="choose the type of device"
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="feedback-form-description">description</label>
+              <input
+                type="text"
+                class="form-control"
+                id="feedback-form-name"
+                placeholder="device description"
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="feedback-form-value">value</label>
+              <select class="form-control" id="feedback-form-value">
+                <option value="true">true</option>
+                <option value="false">false</option>
+              </select>
+              <!-- <input type="checkbox" placeholder="Enter true or false"  class="form-control" id="feedback-form-value"> -->
+            </div>
+            <button type="submit" class="btn btn-default pull-right">
+              Submit
+            </button>
+          </form>
         </div>
       </div>
       <!-- /#page-content-wrapper -->
