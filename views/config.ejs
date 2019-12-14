@@ -107,60 +107,81 @@
 
         <div class="container-fluid">
           <h1 class="mt-4">Manage GPIOs</h1>
-          <form class="feedback-form">
-            <div class="form-group">
-              <label for="name">Name</label>
-              <input
-                type="text"
-                class="form-control"
-                id="name"
-                placeholder="Enter the device name"
-              />
-            </div>
+          <div class="gpio-form">
+            <form class="add-device">
+              <div class="form-group">
+                <input
+                  type="text"
+                  class="form-control"
+                  name="name"
+                  id="name"
+                  placeholder="Name"
+                  required="required"
+                />
+              </div>
+              <div class="form-group">
+                <input
+                  type="text"
+                  class="form-control"
+                  name="pin"
+                  id="pin"
+                  placeholder="pin"
+                  required="required"
+                />
+              </div>
+              <div class="form-group">
+                <select
+                  class="form-control"
+                  name="type"
+                  id="type"
+                  placeholder="type"
+                  required="required"
+                >
+                  <option value="true">Input</option>
+                  <option value="false">Output</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <input
+                  type="text"
+                  class="form-control"
+                  name="description"
+                  id="description"
+                  placeholder="description"
+                  required="required"
+                />
+              </div>
+              <div class="form-group">
+                <select
+                  class="form-control"
+                  name="value"
+                  id="value"
+                  placeholder="value"
+                  required="required"
+                >
+                  <option value="true">true</option>
+                  <option value="false">false</option>
+                </select>
+              </div>
 
-            <div class="form-group">
-              <label for="pin">GPIO PIN</label>
-              <input
-                type="text"
-                class="form-control"
-                id="pin"
-                placeholder="Enter Pin number"
-              />
-            </div>
-            <div class="form-group">
-              <label for="type">Type</label>
-              <select
-                class="form-control"
-                id="type"
-                placeholder="choose the type of device"
-              >
-                <option value="input">Input</option>
-                <option value="output">Output</option>
-              </select>
-            </div>
+              <div class="form-group">
+                <label class="checkbox-inline"
+                  ><input type="checkbox" required="required" /> I accept the
+                  <a href="#">Terms of Use</a> &amp;
+                  <a href="#">Privacy Policy</a></label
+                >
+              </div>
+              <div class="form-group">
+                <button type="submit" class="btn btn-success btn-lg btn-block">
+                  Register Now
+                </button>
+              </div>
+            </form>
 
-            <div class="form-group">
-              <label for="description">description</label>
-              <input
-                type="text"
-                class="form-control"
-                id="description"
-                placeholder="device description"
-              />
+            <div class="text-center">
+              Already have an account? <a href="/login">Sign in</a>
             </div>
-
-            <div class="form-group">
-              <label for="value">value</label>
-              <select class="form-control" id="value">
-                <option value="true">true</option>
-                <option value="false">false</option>
-              </select>
-              <!-- <input type="checkbox" placeholder="Enter true or false"  class="form-control" id="feedback-form-value"> -->
-            </div>
-            <button type="submit" class="btn btn-primary">
-              Submit
-            </button>
-          </form>
+          </div>
         </div>
       </div>
       <!-- /#page-content-wrapper -->
