@@ -5,7 +5,7 @@ module.exports = function(req, res, next) {
   const token = req.cookies.token;
 
   if (!token) {
-    return res.status(401).send("Access denied. No JWT provided.");
+    return res.status(401).redirect("/login");
   }
 
   try {
