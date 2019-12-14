@@ -61,7 +61,7 @@ function sendData(res, data, err) {
 }
 
 //Delete Device
-router.delete("/api/delete", function(req, res) {
+router.post("/api/delete", function(req, res) {
   res.setHeader("Access-Control-Allow-Origin", "*");
   var name = req.params.name;
   if (!name) {

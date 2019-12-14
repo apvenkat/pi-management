@@ -18,7 +18,7 @@ $(function() {
 
   $(".remove-gpio-form").submit(function(e) {
     e.preventDefault();
-    $.delete(
+    $.post(
       "/api/delete/",
       {
         name: $("#device-name").val()
