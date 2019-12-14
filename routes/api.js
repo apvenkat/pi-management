@@ -63,7 +63,7 @@ function sendData(res, data, err) {
 //Delete Device
 router.post("/api/delete", function(req, res) {
   res.setHeader("Access-Control-Allow-Origin", "*");
-  var name = req.params.name;
+  var name = req.body.name;
   if (!name) {
     res.status(400).send("Name is mandatory");
   } else {
