@@ -32,7 +32,7 @@ $(function() {
       output += '           <div class="feedback-head">';
       output +=
         '             <div class="feedback-title">' +
-        item.gpio +
+        item.pin +
         ' <small class="feedback-name label label-info">' +
         item.name +
         "</small></div>";
