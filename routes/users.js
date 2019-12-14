@@ -100,6 +100,7 @@ router.post("/LoginUser", function(req, res) {
 });
 
 router.get("/logout", function(req, res) {
+  res.clearCookie("token");
   res.redirect("/login");
 });
 
