@@ -60,6 +60,7 @@ $(function() {
       output +=
         '       <div class="media-left"><button class="feedback-delete btn btn-xs btn-danger"><span id="' +
         key +
+        1 +
         '" class="glyphicon glyphicon-remove"></span></button></div>';
       output += '         <div class="feedback-info media-body">';
       output += '           <div class="feedback-head">';
