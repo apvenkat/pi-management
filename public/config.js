@@ -4,15 +4,16 @@
   $(".feedback-form").submit(function(e) {
     e.preventDefault();
     $.post(
-      "api",
+      "/api",
       {
-        pin: $("#feedback-form-pin").val(),
-        name: $("#feedback-form-name").val(),
-        type: $("#feedback-form-type").val(),
-        description: $("#feedback-form-description").val(),
-        value: $("#feedback-form-value").val()
+        pin: $("#pin").val(),
+        name: $("#name").val(),
+        type: $("#type").val(),
+        description: $("description").val(),
+        value: $("#value").val()
       },
-      updateFeedback
+      updateFeedback,
+      alert
     );
   });
 
@@ -87,5 +88,12 @@
       output += "     </div>";
     });
     $(".feedback-messages").html(output);
+  }
+
+  function alert() {
+    var output = "";
+    output +=
+      '<div class="alert alert-success" role="alert"> Data Inserted Successfully !!</div>';
+    $(".alert-messages").html(output);
   }
 });
