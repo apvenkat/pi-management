@@ -21,7 +21,7 @@ $(function() {
     $.post(
       "/api/delete/",
       {
-        name: $("#name").val()
+        name: $("#device-name").val()
       },
       updateFeedback
     );
