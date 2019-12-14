@@ -61,14 +61,14 @@ function sendData(res, data, err) {
 }
 
 //Delete Device
-router.delete("/api/delete/:id", function(req, res) {
+router.delete("/api/delete/:name", function(req, res) {
   res.setHeader("Access-Control-Allow-Origin", "*");
-  var id = req.params.id;
-  if (!id) {
-    res.status(400).send("ID is mandatory");
+  var name = req.params.name;
+  if (!name) {
+    res.status(400).send("Name is mandatory");
   } else {
-    var sql = `delete from  gpiolist where id = ?;`;
-    var values = [id];
+    var sql = `delete from  gpiolist where name = ?;`;
+    var values = [name];
 
     db.serialize(function() {
       db.run(sql, values, function(err) {
