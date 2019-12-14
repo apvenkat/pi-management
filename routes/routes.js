@@ -28,9 +28,9 @@ router.get("/login", function(req, res, next) {
   }
 });
 
-router.get("/settings", function(req, res, next) {
+router.get("/config", function(req, res, next) {
   if (req.accepts("html")) {
-    res.render("settings");
+    res.render("config");
   } else {
     res.json(sensorlist);
   }

@@ -9,7 +9,7 @@
       <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
         <div class="container-fluid">
           <div class="navbar-wrapper">
-            <a class="navbar-brand" href="#pablo">Dashboard</a>
+            <a class="navbar-brand" href="#pablo">Add Device</a>
           </div>
           <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
             <span class="sr-only">Toggle navigation</span>
@@ -33,35 +33,33 @@
       <div class="content">
         <div class="container-fluid">
           <!-- your content here -->
+		  <!-- Default form login -->
+      <form class="feedback-form">
+            <div class="form-group">
+              <label for="feedback-form-name">Name</label>
+              <input type="text" class="form-control" id="feedback-form-name" placeholder="Enter your name">
+            </div>
+            <div class="form-group">
+              <label for="feedback-form-name">Description</label>
+              <input type="text" class="form-control" id="feedback-form-description" placeholder="Enter device description">
+            </div>
 
-          <main class="col bg-faded p-0">
-                          <div class ="mt-2 ml-2 overflowScroll">
-                              <div class="row ml-2 " id="devices-dashboard">
-                                     <!-- <div class="card text-white bg-dark test m-3" style="width: 15rem;">
-                                        <div class="card-header">Thermostat</div>
-                                        <div class="card-body">
-                                        <h5 class="card-title">0*C</h5>
-                                        <p class="card-text">Temperature in the room </p>
-                                        </div>
-                                        <div class="card-footer">
-                                        <input type="checkbox" checked data-toggle="toggle" data-onstyle="success" data-offstyle="danger"><!-- Material checked -->
-                                        <!-- </div>
-                                      </div>
-                                      <div class="card text-white bg-dark test m-3" style="width: 15rem;">
-                                        <div class="card-header">Thermostat</div>
-                                        <div class="card-body">
-                                        <h5 class="card-title">0*C</h5>
-                                        <p class="card-text">Temperature in the room </p>
-                                        </div>
-                                        <div class="card-footer">
-                                        <input type="checkbox" checked data-toggle="toggle" data-onstyle="success" data-offstyle="danger"><!-- Material checked -->
-                                        <!-- </div>
-                                      </div> -->
-                                </div>
-          									</div>
+            <div class="form-group">
+              <label for="feedback-form-title">Pin</label>
+              <input type="text" class="form-control" id="feedback-form-title" placeholder="Title of your feedback">
+            </div>
 
-          			</main>
-
+            <div class="form-group">
+                <label for="feedback-form-message">Type</label>
+                <textarea type="text" placeholder="Enter your message, then hit the submit"  class="form-control" id="feedback-form-message" rows="6"></textarea>
+            </div>
+            <div class="form-group">
+              <label for="feedback-form-value">value</label>
+              <input type="text" class="form-control" id="feedback-form-value" placeholder="Title of your feedback">
+            </div>
+            <button type="submit" class="btn btn-default pull-right">Submit</button>
+          </form>
+    <!-- Default form login -->
         </div>
       </div>
 <!--       <footer class="footer">
@@ -86,11 +84,10 @@
       </footer> -->
     </div>
   </div>
-
-
-  <script src="/js/devices.js"></script>
   <!--   Core JS Files   -->
-        <% include partials/template/jsdefaults.ejs %>
+    <script src="/js/devices.js"></script>
+      <% include partials/template/jsdefaults.ejs %>
+
 </body>
 
 </html>
