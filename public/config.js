@@ -55,19 +55,19 @@ $(function() {
 
     $.each(data, function(key, item) {
       console.log(key);
-      output += '     <div class="feedback-item item-list media-list">';
-      output += '       <div class="feedback-item media">';
-      output += '         <div class="feedback-info media-body">';
-      output += '           <div class="feedback-head">';
+      // output += '     <div class="feedback-item item-list media-list">';
+      // output += '       <div class="feedback-item media">';
+      // output += '         <div class="feedback-info media-body">';
+      // output += '           <div class="feedback-head">';
       output +=
         '             <div class="feedback-title">' +
         item.pin +
         ' <small class="feedback-name label label-info">' +
         item.name +
         "</small></div>";
-      output += "           </div>";
-      output += "<table>";
-      output += "<tr>";
+      // output += "           </div>";
+      // output += "<table>";
+      // output += "<tr>";
       output +=
         '<div><button class="btn btn-success btn-just-icon" id="' +
         key +
@@ -76,8 +76,8 @@ $(function() {
         '<div><button class="btn btn-danger btn-just-icon" id="' +
         key +
         '"  >Off</button></div>';
-      output += "</tr>";
-      output += "</table>";
+      // output += "</tr>";
+      // output += "</table>";
       output += "         </div>";
       output += "       </div>";
       output += "     </div>";
@@ -85,3 +85,4 @@ $(function() {
     $(".feedback-messages").html(output);
   }
 });
+<input id="toggle-trigger" type="checkbox" data-toggle="toggle"></input>;
