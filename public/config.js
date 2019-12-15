@@ -85,4 +85,3 @@ $(function() {
     $(".feedback-messages").html(output);
   }
 });
-<input id="toggle-trigger" type="checkbox" data-toggle="toggle"></input>;
