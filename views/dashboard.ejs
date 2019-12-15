@@ -16,6 +16,28 @@
 
     <!-- Custom styles for this template -->
     <link href="css/simple-sidebar.css" rel="stylesheet" />
+    <style>
+    .tile_div a {
+    display: block;
+    float: left;
+    height: 50px;
+    width: 100px;
+    margin-right: 5px;
+    background-image: url(./images/button_left.png);
+    background-color: #ccc;
+    text-align: center;
+    line-height: 50px;
+    text-decoration: none;
+}
+
+.title_div a.last {
+    margin-right: 0;
+}
+
+.clear {
+    clear: both;
+}
+    </style>
   </head>
 
   <body>
@@ -107,7 +129,11 @@
 
         <div class="container-fluid">
           <h1 class="mt-4">Dashboard</h1>
-          <div class="feedback-messages"></div>
+          <div class="tile_div">
+            <div class="feedback-messages"></div>
+
+          </div>
+          
         </div>
       </div>
       <!-- /#page-content-wrapper -->
