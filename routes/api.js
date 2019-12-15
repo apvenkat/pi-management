@@ -108,7 +108,7 @@ router.put("/api/id/:id", function(req, res) {
 });
 
 // GPIO high
-router.post("/api/on/:id", function(req, res) {
+router.put("/api/on/:id", function(req, res) {
   request(APIEndpoint, { json: true }, (err, res, gpiodata) => {
     if (err) {
       return console.log(err);
@@ -121,7 +121,7 @@ router.post("/api/on/:id", function(req, res) {
 
 //GPIO Low
 
-router.post("/api/off/:id", function(req, res) {
+router.put("/api/off/:id", function(req, res) {
   request(APIEndpoint, { json: true }, (err, res, gpiodata) => {
     if (err) {
       return console.log(err);

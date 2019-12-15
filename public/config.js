@@ -32,7 +32,7 @@ $(function() {
       $.ajax({
         url: "api/on/" + e.target.id,
         dataType: "json",
-        type: "POST",
+        type: "PUT",
         success: updateFeedback
       }); //ajax
     } // the target is a delete button
@@ -43,7 +43,7 @@ $(function() {
       $.ajax({
         url: "api/off/" + e.target.id,
         dataType: "json",
-        type: "POST",
+        type: "PUT",
         success: updateFeedback
       }); //ajax
     } // the target is a delete button
