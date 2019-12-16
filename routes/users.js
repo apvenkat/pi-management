@@ -62,7 +62,7 @@ function sendData(res, data, err) {
 //Login User
 
 router.post("/LoginUser", function(req, res) {
-  // res.setHeader("Access-Control-Allow-Origin", "*");
+  res.setHeader("Access-Control-Allow-Origin", "*");
   var email = req.body.email;
   var password = req.body.password;
   db.all("SELECT * FROM login WHERE email = ?", [email], function(

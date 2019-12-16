@@ -20,11 +20,11 @@ router.get("/signup", function(req, res, next) {
   }
 });
 
-router.get("/login", function(req, res, next) {
+router.get("/login", auth, function(req, res, next) {
   if (req.accepts("html")) {
-    res.render("login");
+    res.render("dashboard");
   } else {
-    res.json(sensorlist);
+    es.render("login");
   }
 });
 
