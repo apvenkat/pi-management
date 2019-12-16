@@ -14,7 +14,7 @@ $(function() {
   function redirect() {
     $.ajax({
       type: "GET",
-      url: "",
+      url: "/dashboard",
       headers: {
         "X-Auth-Token": $.cookie("token")
       },
