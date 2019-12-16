@@ -3,7 +3,7 @@ var secret = "This is the secret for signing tokens";
 
 module.exports = function(req, res, next) {
   res.setHeader("Authorization", "Bearer" + req.cookies.token);
-  const authorizationheader = req.header.authorization;
+  const authorizationheader = req.headers("authorization");
   console.log(authorizationheader);
   const token = authorizationheader.split(" ")[1];
   console.log(token);
