@@ -20,7 +20,7 @@ $(function() {
         "X-Auth-Token": $.cookie("token")
       },
       success: function() {
-        window.location.href = "/dashboard";
+        window.location = "/dashboard";
       }
     });
   }
