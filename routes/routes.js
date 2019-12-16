@@ -22,9 +22,11 @@ router.get("/signup", function(req, res, next) {
 
 router.get("/login", function(req, res, next) {
   if (req.accepts("html")) {
-    res.render("dashboard");
-  } else {
     res.render("login");
+  } else {
+    res.json({
+      message: "This is a login page"
+    });
   }
 });
 
