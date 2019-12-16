@@ -30,7 +30,7 @@ router.get("/login", function(req, res, next) {
   }
 });
 
-router.get("/config", function(req, res, next) {
+router.get("/config", auth, function(req, res, next) {
   if (req.accepts("html")) {
     res.render("config");
   } else {
