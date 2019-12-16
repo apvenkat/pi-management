@@ -20,7 +20,7 @@ router.get("/signup", function(req, res, next) {
   }
 });
 
-router.get("/login", auth, function(req, res, next) {
+router.get("/login", function(req, res, next) {
   if (req.accepts("html")) {
     res.render("dashboard");
   } else {
