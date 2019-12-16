@@ -2,6 +2,7 @@ const jwt = require("jsonwebtoken");
 var secret = "This is the secret for signing tokens";
 
 module.exports = function(req, res, next) {
+  res.setHeader("Authorization", "Bearer " + req.cookies.token);
   if (typeof req.headers.authorization !== "string") {
     res.sendStatus(400);
     return;
