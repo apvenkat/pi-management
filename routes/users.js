@@ -86,6 +86,7 @@ router.post("/LoginUser", function(req, res) {
           } else {
             var token = jwt.sign({ email: req.body.email }, secret);
             res.cookie("token", token);
+            res.header("x-auth-token", token);
             res.redirect("/dashboard");
           }
         });
