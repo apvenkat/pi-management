@@ -2,7 +2,7 @@ const jwt = require("jsonwebtoken");
 var secret = "This is the secret for signing tokens";
 
 module.exports = function(req, res, next) {
-  const token = req.header("x-auth-token");
+  const token = req.cookies.token;
 
   if (!token) {
     return res.status(401).redirect("/login");
