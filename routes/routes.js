@@ -3,7 +3,7 @@ var router = express.Router();
 router.use(require("cookie-parser")());
 var request = require("request");
 const auth = require("../middleware/auth");
-res.setHeader("x-auth-token", req.cookies.token);
+
 // var options = { method: 'GET',
 //             url: 'http://devices.webofthings.io/pi/sensors/',
 //             headers:
