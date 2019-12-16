@@ -12,15 +12,16 @@ $(function() {
   }); //feedback messages
 
   function redirect() {
-    $.ajax({
-      type: "GET",
-      url: "/dashboard",
-      headers: {
-        "X-Auth-Token": $.cookie("token")
-      },
-      success: function() {
-        window.location = "/dashboard";
-      }
-    });
+    alert("done");
+    // $.ajax({
+    //   type: "GET",
+    //   url: "/dashboard",
+    //   headers: {
+    //     "X-Auth-Token": $.cookie("token")
+    //   },
+    //   success: function() {
+    //     window.location = "/dashboard";
+    //   }
+    // });
   }
 });
