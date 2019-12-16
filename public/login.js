@@ -4,7 +4,6 @@ $(function() {
     $.post(
       "/LoginUser",
       {
-        name: $("#name").val(),
         email: $("#email").val(),
         password: $("#password").val()
       },
