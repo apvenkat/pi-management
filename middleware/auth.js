@@ -2,9 +2,10 @@ const jwt = require("jsonwebtoken");
 var secret = "This is the secret for signing tokens";
 
 module.exports = function(req, res, next) {
-  const authorization = req.header.authorization;
+  res.setHeader("Authorization", "Bearer" + req.cookies.token);
+  const authorizationheader = req.header.authorization;
 
-  const token = authorization.split(" ")[1];
+  const token = authorizationheader.split(" ")[1];
   console.log(token);
   if (!token) {
     return res.status(401).redirect("/login");
